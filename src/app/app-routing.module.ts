@@ -3,7 +3,6 @@ import { EmployeeComponent } from './employee/employee.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EmployeesComponent } from './employees/employees.component';
 
 const routes: Routes = [
 	{
