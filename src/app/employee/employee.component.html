@@ -1,1 +1,54 @@
-<h1>User Page</h1>
+<button
+	(click)="goBack()"
+	class="absolute border-none bg-slate-700 top-2 text-4xl hover:scale-105 text-white"
+>
+	&larr;
+</button>
+
+<div
+	*ngIf="employee$ | async as employee"
+	class="border rounded-md bg-slate-200 shadow-xl border-black mt-24 h-[35rem] w-[50rem] relative"
+>
+	<div class="flex mr-20">
+		<!-- Avatar -->
+		<div>
+			<img
+				class="w-36 rounded-md p-4"
+				src="https://www.kindpng.com/picc/m/421-4212275_transparent-default-avatar-png-avatar-img-png-download.png"
+				alt="Transparent Default Avatar Png - Avatar Img, Png"
+			/>
+		</div>
+
+		<!-- User Details -->
+		<div class="mt-4">
+			<h4 class="text-lg">{{ employee.name }}</h4>
+			<p class="py-1">@{{ employee.username }}</p>
+			<p>{{ employee.email }}</p>
+
+			<div class="mt-2">
+				<fa-icon [icon]="faLocation"></fa-icon>
+				<span class="pl-2 font-semi-bold">{{
+					employee.address.city
+				}}</span>
+			</div>
+		</div>
+		<!-- Address -->
+
+		<div class="ml-auto self-center">
+			<button
+				class="border-none bg-blue-500 text-white rounded-lg p-1 w-32 bg-gray focus:outline focus:outline-blue-700text-white hover:bg-blue-700"
+			>
+				Hire
+			</button>
+		</div>
+	</div>
+
+	<!-- Underline / divider -->
+	<div class="border border-black mt-2"></div>
+
+	<h2
+		class="absolute text-4xl top-1/2 left-1/2 -translate-x-1/2 - translate-y-1/2"
+	>
+		Status: {{ employee.company ? 'Already Employed' : 'Ready to Work' }}
+	</h2>
+</div>
