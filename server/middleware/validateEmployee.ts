@@ -1,23 +1,23 @@
 import { NextFunction, Request, Response } from 'express';
 import { errorResponse } from '../errorResponse';
 
-export function validateUserId(
+export function validateEmployeeId(
 	req: Request,
 	res: Response,
 	next: NextFunction,
 ) {
 	const { id } = req.params;
 
-	const userId = Number(id);
+	const employeeId = Number(id);
 
-	const isUserIdNotANumber = Number.isNaN(userId);
+	const isEmployeeIdNotANumber = Number.isNaN(employeeId);
 
-	if (isUserIdNotANumber) {
+	if (isEmployeeIdNotANumber) {
 		return errorResponse(res, 400, 'The id must be a number');
 	}
 
 	// Pass the validated userId to locals to be used in next middlewares
-	res.locals['userId'] = userId;
+	res.locals['employeeId'] = employeeId;
 
 	next();
 }

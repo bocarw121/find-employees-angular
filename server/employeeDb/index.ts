@@ -1,6 +1,6 @@
-import { User } from '../../src/types';
+import { Employee } from '../../src/types';
 
-export const Users: User[] = [
+export const Employees: Employee[] = [
 	{
 		id: 1,
 		name: 'Leanne Graham',
