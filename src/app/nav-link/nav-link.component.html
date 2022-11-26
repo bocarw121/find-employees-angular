@@ -1,0 +1,11 @@
+<ul class="mt-20">
+	<li>
+		<a
+			[ngClass]="{ invisible: !isOpen }"
+			class="links border border-solid my-5 mx-8 p-2 bg-white hover:bg-sky-500 cursor-pointer hover:text-white hover:scale-95 text-xl block"
+			routerLink="{{ linkData.href }}"
+			routerLinkActive="active"
+			>{{ linkData.name }}</a
+		>
+	</li>
+</ul>

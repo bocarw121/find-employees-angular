@@ -1,0 +1,7 @@
+header.close {
+	width: 2rem;
+}
+
+.hamburger.closed {
+	margin-right: 0.2rem;
+}
