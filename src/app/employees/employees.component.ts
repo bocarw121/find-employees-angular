@@ -1,4 +1,3 @@
-import { EmployeesService } from './../employees.service';
 import { HttpClient } from '@angular/common/http';
 import { Employee } from '../../types';
 import { Component, OnInit } from '@angular/core';

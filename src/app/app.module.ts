@@ -11,6 +11,7 @@ import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { HiredComponent } from './hired/hired.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { UserCardComponent } from './user-card/user-card.component';
 
 @NgModule({
 	declarations: [
@@ -20,6 +21,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 		EmployeesComponent,
 		EmployeeComponent,
 		HiredComponent,
+  UserCardComponent,
 	],
 	imports: [
 		BrowserModule,

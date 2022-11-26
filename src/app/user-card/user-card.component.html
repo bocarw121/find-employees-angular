@@ -1,0 +1,43 @@
+<div
+	*ngIf="employee"
+	[routerLink]="['employees', employee.id]"
+	class="w-80 h-52 p-2 border border-transparent rounded-3xl bg-sky-500 cursor-pointer hover:scale-110 hover:border-blue-900 hover:border-2 transition ease-in-out duration-500 text-white relative"
+>
+	<!-- Badge -->
+	<span
+		[ngClass]="{
+			'bg-green-400': !employee.company,
+			'bg-red-400': employee.company
+		}"
+		class="absolute border text-xs border-transparent -right-2 p-1.5 -top-2 skew-y-12"
+	>
+		{{ !employee.company ? 'Hire' : 'Hired' }}</span
+	>
+	<p class="text-sm">
+		<span class="font-bold">Name:</span>
+		{{ employee.name }}
+	</p>
+	<p class="text-sm">
+		<span class="font-bold">Email:</span> {{ employee.email }}
+	</p>
+	<div class="border-b-2 mt-2 mx-auto"></div>
+	<div class="flex justify-evenly align-middle">
+		<address>
+			<div class="mt-8">
+				<span class="font-bold underline underline-offset-4"
+					>Address</span
+				>
+				<h4>{{ employee.address.street }}</h4>
+				<p>{{ employee.address.city }}</p>
+				<p>{{ employee.address.zipcode }}</p>
+			</div>
+		</address>
+		<div class="mt-8">
+			<span class="font-bold underline underline-offset-4">Company</span>
+			<div *ngIf="employee.company">
+				<h4>{{ employee.company.name }}</h4>
+				<p>{{ employee.company.start }}</p>
+			</div>
+		</div>
+	</div>
+</div>

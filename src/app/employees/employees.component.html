@@ -1,51 +1,7 @@
 <div
-	class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 place-items-center mt-12 font-mono"
+	class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 place-items-center mt-12 font-mono border border-transparent"
 >
-	<div
-		[routerLink]="['employees', employee.id]"
-		class="flex border border-transparent rounded-3xl w-80 h-52 p-2 bg-sky-500 cursor-pointer hover:scale-110 hover:border-blue-900 hover:border-2 transition ease-in-out duration-500"
-		*ngFor="let employee of employees"
-	>
-		<div class="w-full h-full text-white relative">
-			<!-- Badge -->
-			<span
-				[ngClass]="{
-					'bg-green-400': !employee.company,
-					'bg-red-400': employee.company
-				}"
-				class="absolute border text-xs border-transparent -right-2 p-1.5 -top-2 skew-y-12"
-			>
-				{{ !employee.company ? 'Hire' : 'Hired' }}</span
-			>
-			<p class="text-sm">
-				<span class="font-bold">Name:</span>
-				{{ employee.name }}
-			</p>
-			<p class="text-sm">
-				<span class="font-bold">Email:</span> {{ employee.email }}
-			</p>
-			<div class="border-b-2 mt-2 mx-auto"></div>
-			<div class="flex justify-evenly align-middle">
-				<address>
-					<div class="mt-8">
-						<span class="font-bold underline underline-offset-4"
-							>Address</span
-						>
-						<h4>{{ employee.address.street }}</h4>
-						<p>{{ employee.address.city }}</p>
-						<p>{{ employee.address.zipcode }}</p>
-					</div>
-				</address>
-				<div class="mt-8">
-					<span class="font-bold underline underline-offset-4"
-						>Company</span
-					>
-					<div *ngIf="employee.company">
-						<h4>{{ employee.company.name }}</h4>
-						<p>{{ employee.company.start }}</p>
-					</div>
-				</div>
-			</div>
-		</div>
+	<div *ngFor="let employee of employees">
+		<app-user-card [employee]="employee"></app-user-card>
 	</div>
 </div>
