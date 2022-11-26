@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NavLinkComponent } from './nav-link/nav-link.component';
 import { HomeComponent } from './home/home.component';
-import { UsersComponent } from './users/users.component';
+import { EmployeesComponent } from './employees/employees.component';
 import { UserComponent } from './user/user.component';
 import { HiredComponent } from './hired/hired.component';
 
@@ -16,7 +16,7 @@ import { HiredComponent } from './hired/hired.component';
 		AppComponent,
 		NavBarComponent,
 		HomeComponent,
-		UsersComponent,
+		EmployeesComponent,
   UserComponent,
   HiredComponent,
 	],
