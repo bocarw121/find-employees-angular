@@ -5,3 +5,7 @@ header.close {
 .hamburger.closed {
 	margin-right: 0.2rem;
 }
+
+header {
+	min-height: calc(100vh + 100%);
+}
