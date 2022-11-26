@@ -6,13 +6,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NavLinkComponent } from './nav-link/nav-link.component';
+import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
+import { UserComponent } from './user/user.component';
+import { HiredComponent } from './hired/hired.component';
 
 @NgModule({
-	declarations: [AppComponent, NavBarComponent],
+	declarations: [
+		AppComponent,
+		NavBarComponent,
+		HomeComponent,
+		UsersComponent,
+  UserComponent,
+  HiredComponent,
+	],
 	imports: [
 		BrowserModule,
-		HttpClientModule,
 		AppRoutingModule,
+		HttpClientModule,
 		NavLinkComponent,
 	],
 	providers: [],
