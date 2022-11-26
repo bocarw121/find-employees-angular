@@ -1,5 +1,5 @@
 import { HiredComponent } from './hired/hired.component';
-import { UserComponent } from './user/user.component';
+import { EmployeeComponent } from './employee/employee.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,12 +11,8 @@ const routes: Routes = [
 		component: HomeComponent,
 	},
 	{
-		path: 'employees',
-		component: EmployeesComponent,
-	},
-	{
 		path: 'employees/:id',
-		component: UserComponent,
+		component: EmployeeComponent,
 	},
 	{
 		path: 'hired',
