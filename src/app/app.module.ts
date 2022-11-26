@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { HiredComponent } from './hired/hired.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
 	declarations: [
@@ -17,14 +18,15 @@ import { HiredComponent } from './hired/hired.component';
 		NavBarComponent,
 		HomeComponent,
 		EmployeesComponent,
-  EmployeeComponent,
-  HiredComponent,
+		EmployeeComponent,
+		HiredComponent,
 	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
 		HttpClientModule,
 		NavLinkComponent,
+		FontAwesomeModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],
