@@ -14,7 +14,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserCardComponent } from './user-card/user-card.component';
 import { HireEmployeeComponent } from './hire-employee/hire-employee.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DatePipe } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
+import { BackButtonComponent } from './back-button/back-button.component';
 
 @NgModule({
 	declarations: [
@@ -26,6 +29,7 @@ import { DatePipe } from '@angular/common';
 		HiredComponent,
 		UserCardComponent,
 		HireEmployeeComponent,
+  BackButtonComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -34,6 +38,8 @@ import { DatePipe } from '@angular/common';
 		HttpClientModule,
 		NavLinkComponent,
 		FontAwesomeModule,
+		BrowserAnimationsModule, // required animations module
+		ToastrModule.forRoot(),
 	],
 	providers: [],
 	bootstrap: [AppComponent],
