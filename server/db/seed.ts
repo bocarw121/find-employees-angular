@@ -1,6 +1,7 @@
+import { Employees } from '../models/Employee.schema';
 import { Employee } from '../../src/types';
 
-export const Employees: Employee[] = [
+export const employees: Employee[] = [
 	{
 		id: 1,
 		name: 'Leanne Graham',
@@ -192,3 +193,7 @@ export const Employees: Employee[] = [
 		company: null,
 	},
 ];
+
+export async function seedDb() {
+	await Employees.insertMany(employees);
+}

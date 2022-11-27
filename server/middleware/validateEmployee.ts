@@ -1,5 +1,5 @@
+import { createCustomError } from '../errors/customApi';
 import { NextFunction, Request, Response } from 'express';
-import { errorResponse } from '../errorResponse';
 
 export function validateEmployeeId(
 	req: Request,
@@ -13,7 +13,7 @@ export function validateEmployeeId(
 	const isEmployeeIdNotANumber = Number.isNaN(employeeId);
 
 	if (isEmployeeIdNotANumber) {
-		return errorResponse(res, 400, 'The id must be a number');
+		return next(createCustomError('The id must be a number', 400));
 	}
 
 	// Pass the validated userId to locals to be used in next middlewares
