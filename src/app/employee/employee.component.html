@@ -1,10 +1,4 @@
-<button
-	(click)="goBack()"
-	class="absolute border-none bg-slate-700 top-2 text-4xl hover:scale-105 text-white"
->
-	&larr;
-</button>
-
+<app-back-button></app-back-button>
 <div
 	*ngIf="employee$ | async as employee"
 	class="border rounded-md bg-slate-200 shadow-xl border-black mt-24 h-[35rem] w-[50rem] relative"
@@ -40,9 +34,11 @@
 				[routerLink]="['/hire', employee.id]"
 				[ngClass]="{
 					'bg-gray-300': employee.company,
-					'hover:bg-gray-300': employee.company
+					'hover:bg-gray-300': employee.company,
+					'hover:bg-blue-700': !employee.company,
+					'bg-blue-500': !employee.company
 				}"
-				class="border-none bg-blue-500 text-white rounded-lg p-1 w-32 bg-gray focus:outline focus:outline-blue-700text-white hover:bg-blue-700"
+				class="border-none text-white rounded-lg p-1 w-32 bg-gray focus:outline focus:outline-blue-700text-white"
 			>
 				Hire
 			</button>
@@ -55,6 +51,7 @@
 	<h2
 		class="absolute text-4xl top-1/2 left-1/2 -translate-x-1/2 - translate-y-1/2"
 	>
-		Status: {{ employee.company ? 'Already Employed' : 'Ready to Work' }}
+		Status:
+		{{ employee.company ? 'Already Employed' : 'Ready to Work' }}
 	</h2>
 </div>

@@ -25,4 +25,8 @@ export class EmployeesService {
 			start,
 		});
 	}
+
+	getAllUsers() {
+		return this.http.get<Employee[]>(this.baseUrl);
+	}
 }

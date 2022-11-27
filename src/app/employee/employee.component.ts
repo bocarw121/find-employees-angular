@@ -18,12 +18,7 @@ export class EmployeeComponent implements OnInit {
 	constructor(
 		private route: ActivatedRoute,
 		private heroService: EmployeesService,
-		private location: Location,
 	) {}
-
-	goBack() {
-		this.location.back();
-	}
 
 	ngOnInit() {
 		const id = Number(this.route.snapshot.paramMap.get('id'));
