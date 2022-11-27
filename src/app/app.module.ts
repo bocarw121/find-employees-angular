@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
 import { BackButtonComponent } from './back-button/back-button.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
 	declarations: [
@@ -29,7 +30,8 @@ import { BackButtonComponent } from './back-button/back-button.component';
 		HiredComponent,
 		UserCardComponent,
 		HireEmployeeComponent,
-  BackButtonComponent,
+		BackButtonComponent,
+  AboutComponent,
 	],
 	imports: [
 		BrowserModule,

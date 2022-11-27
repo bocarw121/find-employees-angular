@@ -1,11 +1,21 @@
-<ul class="mt-20">
-	<li>
+<ul>
+	<li class="mt-20">
 		<a
 			[ngClass]="{ invisible: !isOpen }"
-			class="links border border-solid my-5 mx-8 p-2 w-24 bg-white hover:bg-sky-500 cursor-pointer hover:text-white hover:scale-95 block"
+			class="border border-solid mx-auto p-2 w-24 bg-white hover:bg-sky-500 cursor-pointer hover:text-white hover:scale-95 block"
 			routerLink="{{ linkData.href }}"
 			routerLinkActive="active"
 			>{{ linkData.name }}</a
 		>
+	</li>
+
+	<li *ngIf="!isOpen">
+		<a
+			routerLink="{{ linkData.href }}"
+			routerLinkActive="active"
+			class="block text-white -mt-10 text-xl hover:scale-125 transition-all hover:text-sky-500"
+		>
+			<fa-icon [icon]="linkData.icon"> </fa-icon>
+		</a>
 	</li>
 </ul>
