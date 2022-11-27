@@ -4,7 +4,6 @@ import employeesRouter from './routes/employees.router';
 import * as cors from 'cors';
 import notFound from './middleware/notFound';
 
-import 'express-async-errors';
 import errorHandler from './middleware/errorHandler';
 
 const app = express();

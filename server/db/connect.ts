@@ -1,9 +1,7 @@
 import mongoose from 'mongoose';
 
-const uri = process.env['MONGO_URI'];
-
-export function connectDb() {
-	mongoose.connect(uri as string, () => {
+export function connectDb(uri: string) {
+	mongoose.connect(uri, () => {
 		console.log('Connected to database');
 	});
 }

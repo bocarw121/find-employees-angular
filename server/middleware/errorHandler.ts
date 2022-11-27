@@ -40,7 +40,7 @@ function errorHandler(
 	}
 
 	if (err.name === 'CastError') {
-		customError.message = `No item found with id : ${err.value}`;
+		customError.message = `Invalid type: ${JSON.stringify(err.value)}`;
 		customError.statusCode = StatusCodes.NOT_FOUND;
 	}
 

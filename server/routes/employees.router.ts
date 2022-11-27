@@ -13,16 +13,12 @@ employeesRouter.get('/employees', handleGetEmployees);
 
 employeesRouter.get('/employees/:id', validateEmployeeId, handleGetEmployee);
 
-employeesRouter.put(
+employeesRouter.patch(
 	'/employees/:id',
 	validateEmployeeId,
 	handleUpdateEmployeeHired,
 );
 
-employeesRouter.delete(
-	'/employees/:id',
-	validateEmployeeId,
-	handleFireEmployee,
-);
+employeesRouter.patch('/employees/:id', validateEmployeeId, handleFireEmployee);
 
 export default employeesRouter;
