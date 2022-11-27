@@ -1,23 +1,29 @@
-import { Employees } from '../employeeDb';
 import { Company } from '../../src/types';
+import { Employees } from './Employee.schema';
 
-export function getAllEmployees() {
-	return Employees;
+export async function getAllEmployees() {
+	const employees = await Employees.find();
+
+	return employees;
 }
 
-export function findEmployeeById(employeeId: number) {
-	const index = employeeId - 1;
-	const employee = Employees[index];
+export async function findEmployeeById(employeeId: number) {
+	const employee = await Employees.findOne({ id: employeeId });
 
-	if (employee) return employee;
-	else return null;
+	return employee;
 }
 
-export function updateEmployeeCompany(employeeId: number, company: Company) {
-	const index = employeeId - 1;
-	const employee = Employees[index];
+export async function updateEmployeeCompany(
+	employeeId: number,
+	company: Company,
+) {
+	const filter = {
+		id: employeeId,
+	};
 
-	employee.company = company;
+	const update = { company };
 
-	return Employees;
+	const result = await Employees.findOneAndUpdate(filter, update);
+
+	return result;
 }

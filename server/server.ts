@@ -1,18 +1,22 @@
-import * as express from 'express';
-import * as morgan from 'morgan';
-import employeesRouter from './routes/employees.router';
-import * as cors from 'cors';
+import * as http from 'http';
 
-const app = express();
-
-app.use(morgan('dev'));
-app.use(cors({ origin: true }));
-app.use(express.json());
-
-app.use('/api', employeesRouter);
+import app from './app';
+import { connectDb } from './db/connect';
 
 const PORT = process.env['PORT'] || 8000;
 
-app.listen(PORT, () => {
-	console.log(`Server is listening on port ${PORT}`);
-});
+const server = http.createServer(app);
+
+async function startServer() {
+	try {
+		connectDb();
+	} catch (error) {
+		console.log(error);
+	}
+
+	server.listen(PORT, () => {
+		console.log(`Server is listening on port ${PORT}`);
+	});
+}
+
+startServer();

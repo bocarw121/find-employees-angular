@@ -1,32 +1,66 @@
-import { Request, Response } from 'express';
-import { errorResponse } from '../errorResponse';
+import { StatusCodes } from 'http-status-codes';
+import { Request, Response, NextFunction } from 'express';
+
 import { Company } from '../../src/types';
 import {
 	getAllEmployees,
 	findEmployeeById,
 	updateEmployeeCompany,
 } from '../models/Employees';
+import { createCustomError } from '../errors/customApi';
 
-export function handleGetEmployees(req: Request, res: Response) {
-	return res.json(getAllEmployees());
+export async function handleGetEmployees(req: Request, res: Response) {
+	const employees = await getAllEmployees();
+
+	return res.json(employees);
 }
 
-export function handleGetEmployee(_req: Request, res: Response) {
+export async function handleGetEmployee(
+	_req: Request,
+	res: Response,
+	next: NextFunction,
+) {
 	const { employeeId } = res.locals;
 
-	const employee = findEmployeeById(employeeId);
+	const employee = await findEmployeeById(employeeId);
 
-	if (!employee) return errorResponse(res, 404, 'No user with that id');
+	if (!employee)
+		return next(
+			createCustomError('No user with that id', StatusCodes.BAD_REQUEST),
+		);
 
 	return res.json(employee);
 }
 
-export function handleUpdateEmployeeHired(req: Request, res: Response) {
+export async function handleUpdateEmployeeHired(
+	req: Request,
+	res: Response,
+	next: NextFunction,
+) {
 	const { employeeId } = res.locals;
 	const { name, start } = req.body as Company;
 
-	if (!name || !start)
-		return errorResponse(res, 400, 'You must fill in all fields');
+	if (!name || !start) {
+		return next(createCustomError('You must fill in all fields', 400));
+	}
 
-	return res.json(updateEmployeeCompany(employeeId, { name, start }));
+	try {
+		const complete = await updateEmployeeCompany(employeeId, {
+			name,
+			start,
+		});
+
+		if (!complete) {
+			return next(
+				createCustomError(
+					'No user with that id',
+					StatusCodes.BAD_REQUEST,
+				),
+			);
+		}
+
+		return res.json({ message: 'successfully hired user' });
+	} catch (error) {
+		next(error);
+	}
 }
