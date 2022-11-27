@@ -9,7 +9,6 @@ export class NavBarComponent {
 	isOpen = JSON.parse(localStorage.getItem('isOpen') as string) || false;
 	linkData = [
 		{ name: 'Home', href: '/' },
-		{ name: 'Sign Up', href: '/signup' },
 		{ name: 'Hired', href: '/hired' },
 	];
 

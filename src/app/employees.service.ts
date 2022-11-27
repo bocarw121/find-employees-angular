@@ -18,14 +18,11 @@ export class EmployeesService {
 		return this.http.get<Employee>(url);
 	}
 
-	hireEmployee(id: number, companyName: string, start: Date) {
+	hireEmployee(id: number, companyName: string, start: string) {
 		const url = `${this.baseUrl}/${id}`;
 		return this.http.put<Company>(url, {
-			'Content-type': 'application/json',
-			body: JSON.stringify({
-				name: companyName,
-				start,
-			}),
+			name: companyName,
+			start,
 		});
 	}
 }

@@ -12,6 +12,9 @@ import { EmployeeComponent } from './employee/employee.component';
 import { HiredComponent } from './hired/hired.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserCardComponent } from './user-card/user-card.component';
+import { HireEmployeeComponent } from './hire-employee/hire-employee.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
 	declarations: [
@@ -21,11 +24,13 @@ import { UserCardComponent } from './user-card/user-card.component';
 		EmployeesComponent,
 		EmployeeComponent,
 		HiredComponent,
-  UserCardComponent,
+		UserCardComponent,
+		HireEmployeeComponent,
 	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
+		ReactiveFormsModule,
 		HttpClientModule,
 		NavLinkComponent,
 		FontAwesomeModule,

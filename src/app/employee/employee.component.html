@@ -36,6 +36,12 @@
 
 		<div class="ml-auto self-center">
 			<button
+				disabled="{{ employee.company }}"
+				[routerLink]="['/hire', employee.id]"
+				[ngClass]="{
+					'bg-gray-300': employee.company,
+					'hover:bg-gray-300': employee.company
+				}"
 				class="border-none bg-blue-500 text-white rounded-lg p-1 w-32 bg-gray focus:outline focus:outline-blue-700text-white hover:bg-blue-700"
 			>
 				Hire
