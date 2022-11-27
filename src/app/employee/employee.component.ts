@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { EmployeesService } from './../employees.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -18,7 +17,6 @@ export class EmployeeComponent implements OnInit {
 	constructor(
 		private route: ActivatedRoute,
 		private heroService: EmployeesService,
-		private location: Location,
 	) {}
 
 	ngOnInit() {

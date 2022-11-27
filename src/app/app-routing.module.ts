@@ -32,6 +32,11 @@ const routes: Routes = [
 		path: 'hired',
 		component: HiredComponent,
 	},
+	{
+		path: '**',
+		redirectTo: '',
+		component: HomeComponent,
+	},
 ];
 
 @NgModule({

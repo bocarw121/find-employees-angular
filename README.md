@@ -1,27 +1,46 @@
-# FindEmployees
+## `FindEmployees`
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
+This app allows you to hire an employee with ease.
 
-## Development server
+-   [Reasons](#reasons)
+-   [What I learnt](#what-i-learnt)
+-   [Technologies used](#technologies-used)
+    -   [backend](#backend)
+    -   [Frontend](#frontend)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Reasons
 
-## Code scaffolding
+This is my first Angular app, I built it to get more familiar with how Angular works.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## What I learnt
 
-## Build
+-   How to handle standalone components and importing into them
+-   How to handle routing
+-   Handling conditionals in templates with `*ngIf`
+-   Handling looping in templates with `*ngFor`
+-   Dealing with `ActivatedRoute` to get `params` passed in to the route
+-   Dealing with `Location` to navigate the user to different pages
+-   How to mark class fields as input properties using the `@input()` decorator
+-   Modify Observable data streams using rxjs
+-   Make HTTP Request with the builtin HTTPClient
+-   Using external libraries for toast messages
+-   How to use `tailwindcss` been holding back on this one for a while and I find it to be amazing!
+-   Adding services to separate HTTP Requests logic
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Technologies used
 
-## Running unit tests
+### backend
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+-   TypeScript
+-   Node
+-   Express
+-   MongoDb
+-   Mongoose
+-   Morgan
 
-## Running end-to-end tests
+### Frontend
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+-   TypeScript
+-   Angular
+-   RxJS
+-   Tailwindcss
