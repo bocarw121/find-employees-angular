@@ -4,6 +4,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DatePipe, Location } from '@angular/common';
 import { FormControl } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { timer } from 'rxjs';
 
 @Component({
 	selector: 'app-hire-employee',
@@ -20,6 +22,7 @@ export class HireEmployeeComponent implements OnInit {
 		private route: ActivatedRoute,
 		private employeeService: EmployeesService,
 		private location: Location,
+		private toast: ToastrService,
 		private datePipe: DatePipe,
 	) {}
 
@@ -35,15 +38,22 @@ export class HireEmployeeComponent implements OnInit {
 		const id = Number(this.route.snapshot.paramMap.get('id'));
 		const company = this.companyFormControl.value;
 		if (!company) {
+			this.toast.error('Invalid company name');
 			return;
 		}
 
 		const date = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
 
-		console.log(date);
-
 		this.employeeService
 			.hireEmployee(id, company, date as string)
-			.subscribe(console.log);
+			.subscribe();
+
+		this.companyFormControl.setValue('');
+
+		this.toast.success(`Congrats you hired ${this.employee?.name}!`);
+
+		timer(3000).subscribe(() => {
+			this.location.back();
+		});
 	}
 }
