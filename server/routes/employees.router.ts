@@ -4,6 +4,7 @@ import {
 	handleGetEmployees,
 	handleGetEmployee,
 	handleUpdateEmployeeHired,
+	handleFireEmployee,
 } from './employees.controller';
 
 const employeesRouter = Router();
@@ -16,6 +17,12 @@ employeesRouter.put(
 	'/employees/:id',
 	validateEmployeeId,
 	handleUpdateEmployeeHired,
+);
+
+employeesRouter.delete(
+	'/employees/:id',
+	validateEmployeeId,
+	handleFireEmployee,
 );
 
 export default employeesRouter;

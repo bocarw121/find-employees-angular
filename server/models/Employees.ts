@@ -15,7 +15,7 @@ export async function findEmployeeById(employeeId: number) {
 
 export async function updateEmployeeCompany(
 	employeeId: number,
-	company: Company,
+	company: Company | null,
 ) {
 	const filter = {
 		id: employeeId,

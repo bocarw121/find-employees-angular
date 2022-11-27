@@ -59,7 +59,32 @@ export async function handleUpdateEmployeeHired(
 			);
 		}
 
-		return res.json({ message: 'successfully hired user' });
+		return res.json({ message: 'successfully hired employee' });
+	} catch (error) {
+		next(error);
+	}
+}
+
+export async function handleFireEmployee(
+	req: Request,
+	res: Response,
+	next: NextFunction,
+) {
+	const { employeeId } = res.locals;
+
+	try {
+		const complete = await updateEmployeeCompany(employeeId, null);
+
+		if (!complete) {
+			return next(
+				createCustomError(
+					'No user with that id',
+					StatusCodes.BAD_REQUEST,
+				),
+			);
+		}
+
+		return res.json({ message: 'successfully fired employee' });
 	} catch (error) {
 		next(error);
 	}
