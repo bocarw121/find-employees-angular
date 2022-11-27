@@ -41,5 +41,8 @@ testem.log
 .DS_Store
 Thumbs.db
 /docs
-.env
+*public
+*dist
+
+*pem
 .env
