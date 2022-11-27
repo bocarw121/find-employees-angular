@@ -1,11 +1,11 @@
 import { EmployeesService } from './../employees.service';
 import { Employee } from './../../types';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DatePipe, Location } from '@angular/common';
 import { FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { timer } from 'rxjs';
+import { timer, Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-hire-employee',
@@ -13,8 +13,10 @@ import { timer } from 'rxjs';
 	styleUrls: ['./hire-employee.component.css'],
 	providers: [DatePipe],
 })
-export class HireEmployeeComponent implements OnInit {
+export class HireEmployeeComponent implements OnInit, OnDestroy {
 	@Input() employee: Employee | undefined;
+
+	timer$: Subscription | undefined;
 
 	companyFormControl = new FormControl('');
 
@@ -32,6 +34,10 @@ export class HireEmployeeComponent implements OnInit {
 		this.employeeService
 			.getOneEmployee(id)
 			.subscribe((employee) => (this.employee = employee));
+	}
+
+	ngOnDestroy(): void {
+		this.timer$?.unsubscribe();
 	}
 
 	submitCompanyName() {
@@ -52,7 +58,7 @@ export class HireEmployeeComponent implements OnInit {
 
 		this.toast.success(`Congrats you hired ${this.employee?.name}!`);
 
-		timer(3000).subscribe(() => {
+		this.timer$ = timer(3000).subscribe(() => {
 			this.location.back();
 		});
 	}

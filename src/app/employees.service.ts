@@ -13,6 +13,10 @@ export class EmployeesService {
 
 	constructor(private http: HttpClient) {}
 
+	getAllEmployees() {
+		return this.http.get<Employee[]>(this.baseUrl);
+	}
+
 	getOneEmployee(id: number): Observable<Employee> {
 		const url = `${this.baseUrl}/${id}`;
 		return this.http.get<Employee>(url);
@@ -26,7 +30,13 @@ export class EmployeesService {
 		});
 	}
 
-	getAllUsers() {
-		return this.http.get<Employee[]>(this.baseUrl);
+	fireEmployee(id: number) {
+		const url = `${this.baseUrl}/${id}`;
+		return this.http.delete(url, {
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: null,
+		});
 	}
 }

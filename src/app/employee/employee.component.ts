@@ -18,10 +18,17 @@ export class EmployeeComponent implements OnInit {
 	constructor(
 		private route: ActivatedRoute,
 		private heroService: EmployeesService,
+		private location: Location,
 	) {}
 
 	ngOnInit() {
 		const id = Number(this.route.snapshot.paramMap.get('id'));
+		this.employee$ = this.heroService.getOneEmployee(id);
+	}
+
+	fireEmployee() {
+		const id = Number(this.route.snapshot.paramMap.get('id'));
+		this.heroService.fireEmployee(id).subscribe();
 		this.employee$ = this.heroService.getOneEmployee(id);
 	}
 }
