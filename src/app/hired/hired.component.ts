@@ -14,7 +14,7 @@ export class HiredComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.employeesService
-			.getAllUsers()
+			.getAllEmployees()
 			.pipe(
 				map((employee) =>
 					employee.filter((employee) => employee.company),
