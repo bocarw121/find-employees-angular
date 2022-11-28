@@ -1,5 +1,5 @@
-import { Employees } from '../models/Employee.schema';
-import { Employee } from '../../src/types';
+import { Employees } from '../models/Employees/Employee.schema';
+import { Employee } from '../types';
 
 export const employees: Employee[] = [
 	{

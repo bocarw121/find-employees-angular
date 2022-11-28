@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { validateEmployeeId } from '../middleware/validateEmployee';
+import { validateEmployeeId } from '../../../middleware/validateEmployee';
 import {
 	handleGetEmployees,
 	handleGetEmployee,
@@ -9,16 +9,16 @@ import {
 
 const employeesRouter = Router();
 
-employeesRouter.get('/employees', handleGetEmployees);
+employeesRouter.get('/', handleGetEmployees);
 
-employeesRouter.get('/employees/:id', validateEmployeeId, handleGetEmployee);
+employeesRouter.get('/:id', validateEmployeeId, handleGetEmployee);
 
 employeesRouter.patch(
-	'/employees/:id',
+	'/hire/:id',
 	validateEmployeeId,
 	handleUpdateEmployeeHired,
 );
 
-employeesRouter.patch('/employees/:id', validateEmployeeId, handleFireEmployee);
+employeesRouter.patch('/fire/:id', validateEmployeeId, handleFireEmployee);
 
 export default employeesRouter;

@@ -1,4 +1,4 @@
-import { Company } from '../../src/types';
+import { Company } from '../../types';
 import { Employees } from './Employee.schema';
 
 export async function getAllEmployees() {

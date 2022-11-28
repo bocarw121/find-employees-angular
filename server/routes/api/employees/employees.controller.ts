@@ -1,13 +1,13 @@
 import { StatusCodes } from 'http-status-codes';
 import { Request, Response, NextFunction } from 'express';
 
-import { Company } from '../../src/types';
+import { Company } from '../../../types';
 import {
 	getAllEmployees,
 	findEmployeeById,
 	updateEmployeeCompany,
-} from '../models/Employees';
-import { createCustomError } from '../errors/customApi';
+} from '../../../models/Employees/Employees';
+import { createCustomError } from '../../../errors/customApi';
 
 export async function handleGetEmployees(req: Request, res: Response) {
 	const employees = await getAllEmployees();

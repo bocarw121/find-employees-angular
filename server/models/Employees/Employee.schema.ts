@@ -1,4 +1,4 @@
-import { Employee } from './../../src/types';
+import { Employee } from '../../types';
 import { Schema, model } from 'mongoose';
 
 export const employeeSchema = new Schema<Employee>({
