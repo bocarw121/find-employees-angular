@@ -9,11 +9,7 @@ const uri = process.env['MONGO_URI'] as string;
 const server = http.createServer(app);
 
 async function startServer() {
-	try {
-		connectDb(uri);
-	} catch (error) {
-		console.info(error);
-	}
+	await connectDb(uri);
 
 	server.listen(PORT, () => {
 		console.info(`Server is listening on port ${PORT}`);
