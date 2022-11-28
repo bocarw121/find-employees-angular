@@ -3,7 +3,7 @@
 		"module": "commonjs",
 		"lib": ["es2017"],
 		"allowSyntheticDefaultImports": true,
-		"outDir": "./dist/"
+		"outDir": "./server_build/"
 	},
 	"exclude": ["src/**/*"]
 }

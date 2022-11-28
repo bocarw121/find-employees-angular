@@ -1,0 +1,31 @@
+- name: Create app dir
+  become: true
+  shell: mkdir -p /var/www/app
+
+- name: Copy client build to /var/www/app
+  become: true
+  copy:
+      src: '../../client_build/'
+      dest: /var/www/app/
+  tags: files
+
+- name: Copy server build to root
+  become: true
+  copy:
+      src: '{{server_build}}'
+      dest: .
+  tags: files
+
+- name: Copy Dockerfile
+  become: true
+  copy:
+      src: '{{project_path}}Dockerfile'
+      dest: .
+  tags: files
+
+- name: Env
+  become: true
+  copy:
+      src: '{{project_path}}.env'
+      dest: .
+  tags: files

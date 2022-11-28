@@ -1,0 +1,38 @@
+- name: Build Angular
+  shell: cd "{{project_path}}" && npm run build
+  tags: build
+
+- name: Build express server
+  shell: cd {{server_path}} && tsc -p server.tsconfig.json
+  tags: build
+
+- name: Copy package*.json files to dist
+  shell: cd {{server_path}} && cp package*.json ./server_build
+  tags: build
+
+- name: Move prod_server to deploy
+  shell: cd {{server_path}} && mv server_build ../deploy
+  tags: build
+
+- name: Move client app to deploy
+  shell: mv {{project_path}}dist ../client_build
+  tags: build
+# - name: Build Angular
+#   shell: cd "{{project_path}}" && npm run build
+#   tags: build
+
+# - name: Build express server
+#   shell: cd {{server_path}} && tsc -p server.tsconfig.json
+#   tags: build
+
+# - name: Copy package*.json files to dist
+#   shell: cd {{server_path}} && cp package*.json ./dist
+#   tags: build
+
+# - name: Move Public folder to dist
+#   shell: cd {{server_path}} && cp -r public dist
+#   tags: build
+
+# - name: Move dist build to deploy folder
+#   shell: mv {{server_path}}/dist ../../
+#   tags: build
