@@ -1,0 +1,20 @@
+- name: Install Docker
+  ansible.builtin.shell: cd ~ && curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh get-docker.sh
+  become: true
+  tags:
+      - docker
+
+- name: Install docker-compose
+  ansible.builtin.shell: sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
+  become: true
+  tags:
+      - docker
+
+- name: Add user to docker group
+  ansible.builtin.user:
+      name: '{{ user }}'
+      groups: docker
+      append: yes
+  become: true
+  tags:
+      - docker

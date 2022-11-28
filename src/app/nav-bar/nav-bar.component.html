@@ -1,0 +1,23 @@
+<header
+	[ngClass]="{
+		close: !isOpen
+	}"
+	class="w-36 border-r-2 border-solid border-gray-700 bg-slate-700 absolute top-0 left-0"
+>
+	<div (click)="toggleNav()" class="flex justify-end">
+		<img
+			[ngClass]="{
+				closed: !isOpen,
+				'hover:-skew-x-12': !isOpen,
+				'hover:skew-x-12': isOpen
+			}"
+			class="hamburger mt-3 mr-3 cursor-pointer"
+			src="https://img.icons8.com/external-tal-revivo-bold-tal-revivo/24/ffffff/external-horizontal-separated-bars-representing-hamburger-menu-layout-grid-bold-tal-revivo.png"
+		/>
+	</div>
+	<nav class="flex flex-col text-center">
+		<div *ngFor="let data of linkData">
+			<app-nav-link [isOpen]="isOpen" [linkData]="data"></app-nav-link>
+		</div>
+	</nav>
+</header>

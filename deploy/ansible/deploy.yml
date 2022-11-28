@@ -1,0 +1,5 @@
+- name: AWS EC2 docker app deployment
+  hosts: web
+  tasks:
+      - include_tasks: './tasks/build-docker.yml'
+        tags: build-docker

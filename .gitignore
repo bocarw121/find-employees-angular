@@ -40,3 +40,15 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+/docs
+
+# Deploy
+*public
+*dist
+*configs
+default
+client_build
+server_build
+
+*pem
+.env

@@ -1,0 +1,26 @@
+- name: Install nginx with the latest version
+  apt: name=nginx state=latest
+  become: true
+  tags:
+      - nginx
+
+- name: Start nginx service
+  shell: service nginx start
+  become: true
+  tags:
+      - nginx
+
+- name: Add localhost proxy
+  ansible.builtin.copy:
+      src: ./templates/default
+      dest: /etc/nginx/sites-available/default
+      owner:
+  become: true
+  tags:
+      - nginx
+
+- name: Restart nginx service
+  service: name=nginx state=restarted
+  become: true
+  tags:
+      - nginx

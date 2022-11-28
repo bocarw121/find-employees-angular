@@ -1,0 +1,7 @@
+- name: Build docker with application
+  shell: docker build . -t employees-app
+  tags: build-docker
+
+- name: Run Docker with application
+  shell: docker run --env-file "./.env" -d --rm -p 8000:8000 -t employees-app
+  tags: build-docker

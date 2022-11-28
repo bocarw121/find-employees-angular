@@ -1,0 +1,24 @@
+- name: Local Tasks
+  hosts: localhost
+  vars:
+      project_path: '../../'
+      server_path: '../../server'
+  tasks:
+      - include_tasks: ./tasks/build-app.yml
+        tags: build
+
+- name: AWS EC2 Setup
+  hosts: web
+  vars:
+      project_path: '../../'
+      server_path: '../../server'
+      client_build: '../../client-build'
+      server_build: '../../server_build'
+      user: ubuntu
+  tasks:
+      - include_tasks: './tasks/nginx.yml'
+        tags: nginx
+      - include_tasks: './tasks/install-docker.yml'
+        tags: docker
+      - include_tasks: './tasks/files.yml'
+        tags: files

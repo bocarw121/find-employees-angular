@@ -1,18 +1,19 @@
-import * as express from 'express';
-import * as morgan from 'morgan';
-import usersRouter from './routes/users.router';
-import * as cors from 'cors';
+import * as http from 'http';
 
-const app = express();
-
-app.use(morgan('dev'));
-app.use(cors({ origin: true }));
-app.use(express.json());
-
-app.use('/api', usersRouter);
+import app from './app';
+import { connectDb } from './db/connect';
 
 const PORT = process.env['PORT'] || 8000;
+const uri = process.env['MONGO_URI'] as string;
 
-app.listen(PORT, () => {
-	console.log(`Server is listening on port ${PORT}`);
-});
+const server = http.createServer(app);
+
+async function startServer() {
+	await connectDb(uri);
+
+	server.listen(PORT, () => {
+		console.info(`Server is listening on port ${PORT}`);
+	});
+}
+
+startServer();
