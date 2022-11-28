@@ -2,7 +2,6 @@
 
 This app allows you to hire an employee with ease.
 
--   [`FindEmployees`](#findemployees)
 -   [Reasons](#reasons)
 -   [What I learnt](#what-i-learnt)
 -   [Technologies used](#technologies-used)
@@ -20,7 +19,7 @@ This is my first Angular app, I built it to get more familiar with how Angular w
 -   How to handle routing
 -   Handling conditionals in templates with `*ngIf`
 -   Handling looping in templates with `*ngFor`
--   Dealing with `ActivatedRoute` to get `params` passed in to the route
+-   Dealing with `ActivatedRoute` to get `params` passed into the route
 -   Dealing with `Location` to navigate the user to different pages
 -   How to mark class fields as input properties using the `@input()` decorator
 -   Modify Observable data streams using rxjs
@@ -31,7 +30,15 @@ This is my first Angular app, I built it to get more familiar with how Angular w
 
 ## Technologies used
 
-### backend
+### Frontend
+
+-   TypeScript
+-   Angular
+-   RxJS
+-   Tailwindcss
+
+
+### Backend
 
 -   TypeScript
 -   Node
@@ -40,12 +47,6 @@ This is my first Angular app, I built it to get more familiar with how Angular w
 -   Mongoose
 -   Morgan
 
-### Frontend
-
--   TypeScript
--   Angular
--   RxJS
--   Tailwindcss
 
 ### Deployment
 
