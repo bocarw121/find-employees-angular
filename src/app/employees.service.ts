@@ -23,7 +23,7 @@ export class EmployeesService {
 	}
 
 	hireEmployee(id: number, companyName: string, start: string) {
-		const url = `${this.baseUrl}/${id}`;
+		const url = `${this.baseUrl}/hire/${id}`;
 		return this.http.patch<Company>(url, {
 			name: companyName,
 			start,
@@ -31,7 +31,7 @@ export class EmployeesService {
 	}
 
 	fireEmployee(id: number) {
-		const url = `${this.baseUrl}/${id}`;
+		const url = `${this.baseUrl}/fire/${id}`;
 		return this.http.patch(url, {
 			headers: {
 				'Content-Type': 'application/json',

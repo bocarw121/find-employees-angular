@@ -1,5 +1,8 @@
-<app-back-button></app-back-button>
-
+<div *ngIf="employees?.length === 0">
+	<h1 class="text-4xl text-center font-bold mt-24">
+		No employees have been hired yet
+	</h1>
+</div>
 <div
 	class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 place-items-center mt-32 font-mono border border-transparent"
 >

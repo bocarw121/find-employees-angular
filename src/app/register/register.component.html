@@ -1,13 +1,13 @@
-<app-back-button></app-back-button>
+<h1 class="mr-40 text-center text-5xl">Register</h1>
 
-<h1 class="text-center text-5xl">Hire {{ employee?.name }}</h1>
-
-<form class="flex justify-center border border-black w-96 h-48 mx-auto mt-8">
+<form class="flex justify-center border border-black w-96 h-48 ml-96 mt-8">
 	<div class="mt-8">
-		<label class="block text-center" for="company">Add your company</label>
+		<label class="block text-center font-bold text-lg" for="company"
+			>Company name</label
+		>
 		<input
 			[formControl]="companyFormControl"
-			class="my-2 outline"
+			class="my-2 outline focus:outline-4"
 			type="text"
 			name="company"
 			id=""

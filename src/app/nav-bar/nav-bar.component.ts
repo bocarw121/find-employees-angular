@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {
 	faHome,
-	faAddressBook,
+	faAddressCard,
 	faCheck,
 	faCircleInfo,
 } from '@fortawesome/free-solid-svg-icons';
@@ -15,8 +15,8 @@ export class NavBarComponent {
 
 	linkData = [
 		{ name: 'Home', href: '/', icon: faHome },
+		{ name: 'Register', href: '/register', icon: faAddressCard },
 		{ name: 'About', href: '/about', icon: faCircleInfo },
-		{ name: 'Contact', href: '/contact', icon: faAddressBook },
 		{ name: 'Hired', href: '/hired', icon: faCheck },
 	];
 

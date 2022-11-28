@@ -4,8 +4,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HireEmployeeComponent } from './hire-employee/hire-employee.component';
-import { ContactComponent } from './contact/contact.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
 	{
@@ -17,8 +16,8 @@ const routes: Routes = [
 		component: AboutComponent,
 	},
 	{
-		path: 'contact',
-		component: ContactComponent,
+		path: 'register',
+		component: RegisterComponent,
 	},
 	{
 		path: 'employees/:id',
@@ -26,7 +25,7 @@ const routes: Routes = [
 	},
 	{
 		path: 'hire/:id',
-		component: HireEmployeeComponent,
+		component: RegisterComponent,
 	},
 	{
 		path: 'hired',

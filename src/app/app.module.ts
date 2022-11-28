@@ -12,7 +12,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { HiredComponent } from './hired/hired.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserCardComponent } from './user-card/user-card.component';
-import { HireEmployeeComponent } from './hire-employee/hire-employee.component';
+import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -30,7 +30,7 @@ import { ContactComponent } from './contact/contact.component';
 		EmployeeComponent,
 		HiredComponent,
 		UserCardComponent,
-		HireEmployeeComponent,
+		RegisterComponent,
 		BackButtonComponent,
   AboutComponent,
   ContactComponent,
