@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
 			return;
 		}
 
-		this.companyFormControl.reset();
+		this.companyFormControl.setValue('');
 
 		localStorage.setItem('companyName', company);
 

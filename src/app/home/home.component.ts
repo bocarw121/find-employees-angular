@@ -23,6 +23,6 @@ export class HomeComponent implements OnInit {
 					employees.filter((employee) => employee.company),
 				),
 			)
-			.subscribe(console.log);
+			.subscribe();
 	}
 }

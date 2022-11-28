@@ -2,11 +2,13 @@
 
 This app allows you to hire an employee with ease.
 
+-   [`FindEmployees`](#findemployees)
 -   [Reasons](#reasons)
 -   [What I learnt](#what-i-learnt)
 -   [Technologies used](#technologies-used)
     -   [backend](#backend)
     -   [Frontend](#frontend)
+    -   [Deployment](#deployment)
 
 ## Reasons
 
@@ -44,3 +46,12 @@ This is my first Angular app, I built it to get more familiar with how Angular w
 -   Angular
 -   RxJS
 -   Tailwindcss
+
+### Deployment
+
+-   AWS
+-   Ansible
+-   Docker
+-   NGINX
+
+# [Live Site](http://18.222.27.49)
