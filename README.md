@@ -55,4 +55,4 @@ This is my first Angular app, I built it to get more familiar with how Angular w
 -   Docker
 -   NGINX
 
-# [Live Site](http://18.222.27.49)
+
